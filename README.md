@@ -1,7 +1,7 @@
 ### cs_20231
 Repositório definido para a manutenção do controle de versão dos artefatos do projeto de construção de uma API Rest para:
 
-**<descrever o propósito da API>**.
+*O projeto tem como propósito ser um sistema simplificado e seguro de agendamento de vacinas, que permite que usuários cadastrados consigam facilmente agendar suas vacinas em todas as suas doses e de forma bem automatizada. Além disso, o sistema permite que os administradores consigam monitorar todo o sistema, cadastrar novas vacinas, alergias, usuários e administrar os agendamentos feitos pelos usuários.*
 
 ### Grupo
 Esta API será construída pelos componentes do grupo 1:
@@ -13,9 +13,6 @@ Esta API será construída pelos componentes do grupo 1:
 |201905534|Igor Pimenta Araújo|[igor-pimenta-araujo](https://github.com/igor-pimenta-araujo)|
 |202204196|João Pedro Silva Franco|[joaopedrosf](https://github.com/joaopedrosf)|
 |202004773|Mozaniel Pereira Silva Correia|[MozanielPSC](https://github.com/MozanielPSC)|
-
-### Propósito
-O projeto tem como propósito ser um sistema simplificado e seguro de agendamento de vacinas, que permite que usuários cadastrados consigam facilmente agendar suas vacinas em todas as suas doses e de forma bem automatizada. Além disso, o sistema permite que os administradores consigam monitorar todo o sistema, cadastrar novas vacinas, alergias, usuários e administrar os agendamentos feitos pelos usuários.
 
 ### Requisitos Funcionais
 1. Cadastro de usuário - Permite que um novo usuário se cadastre no sistema informando seus dados pessoais, como nome, e-mail, senha, data de nascimento, telefone, entre outros.
