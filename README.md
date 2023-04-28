@@ -9,7 +9,7 @@ Esta API será construída pelos componentes do grupo 1:
 |Matrícula|Nome|Usuário Git|
 |---|---|---|
 |201905528|Felipe Ramos Kafuri|[felipekafuri](https://github.com/felipekafuri)|
-|202108000|Gabriel Milhomen Cunha|[]()|
+|202108000|Gabriel Milhomen Cunha|[gabriel-milhomem](https://github.com/gabriel-milhomem)|
 |201905534|Igor Pimenta Araújo|[igor-pimenta-araujo](https://github.com/igor-pimenta-araujo)|
 |202204196|João Pedro Silva Franco|[joaopedrosf](https://github.com/joaopedrosf)|
 |202004773|Mozaniel Pereira Silva Correia|[MozanielPSC](https://github.com/MozanielPSC)|
