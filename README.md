@@ -21,16 +21,16 @@ Esta API será construída pelos componentes do grupo 1:
  3. Exclusão de usuário - Permite que um usuário seja removido do sistema, juntamente com todas as suas informações e registros associados.
  4. Listagem de usuários - Permite que um usuário administrador visualize uma lista de todos os usuários cadastrados no sistema, incluindo suas informações pessoais e de contato.
  5. Cadastro de vacina - Permite que um usuário administrador registre uma nova vacina no sistema, incluindo informações como nome, fabricante, data de  fabricação, data de validade e dosagem.
-6. Exclusão de vacina - Permite que um usuário administrador remova uma vacina do sistema, juntamente com todas as informações associadas.
-7. Listagem de vacinas - Permite que um usuário visualize uma lista de todas as vacinas cadastradas no sistema, juntamente com suas informações e disponibilidade.
-8. Cadastro de alergia - Permite que um usuário registre uma nova alergia no sistema, incluindo informações como nome, descrição e gravidade.
-9. Exclusão de alergia - Permite que um usuário remova uma alergia do sistema, juntamente com todas as informações associadas.
-10. Listagem de alergias - Permite que um usuário visualize uma lista de todas as alergias cadastradas no sistema, juntamente com suas informações.
-11. Cadastro de agendamento - Permite que um usuário agende uma vacinação informando informações como nome, data de nascimento, e-mail, telefone, alergias, entre outros.
-12. Exclusão de agendamento - Permite que um usuário administrador remova um agendamento do sistema, juntamente com todas as informações associadas.
-13. Listagem de agendamentos - Permite que um usuário administrador visualize uma lista de todos os agendamentos cadastrados no sistema, juntamente com suas informações.
-14. Listagem de agendamentos por situação - Permite que um usuário administrador visualize uma lista de todos os agendamentos cadastrados no sistema, filtrando-os por situação, como "aguardando confirmação", "confirmado" e "cancelado".
-15. Listagem de agendamentos por data - Permite que um usuário administrador visualize uma lista de todos os agendamentos cadastrados no sistema, filtrando-os por data de agendamento.
+ 6. Exclusão de vacina - Permite que um usuário administrador remova uma vacina do sistema, juntamente com todas as informações associadas.
+ 7. Listagem de vacinas - Permite que um usuário visualize uma lista de todas as vacinas cadastradas no sistema, juntamente com suas informações e disponibilidade.
+ 8. Cadastro de alergia - Permite que um usuário registre uma nova alergia no sistema, incluindo informações como nome, descrição e gravidade.
+ 9. Exclusão de alergia - Permite que um usuário remova uma alergia do sistema, juntamente com todas as informações associadas.
+ 10. Listagem de alergias - Permite que um usuário visualize uma lista de todas as alergias cadastradas no sistema, juntamente com suas informações.
+ 11. Cadastro de agendamento - Permite que um usuário agende uma vacinação informando informações como nome, data de nascimento, e-mail, telefone, alergias, entre outros.
+ 12. Exclusão de agendamento - Permite que um usuário administrador remova um agendamento do sistema, juntamente com todas as informações associadas.
+ 13. Listagem de agendamentos - Permite que um usuário administrador visualize uma lista de todos os agendamentos cadastrados no sistema, juntamente com suas informações.
+ 14. Listagem de agendamentos por situação - Permite que um usuário administrador visualize uma lista de todos os agendamentos cadastrados no sistema, filtrando-os por situação, como "aguardando confirmação", "confirmado" e "cancelado".
+ 15. Listagem de agendamentos por data - Permite que um usuário administrador visualize uma lista de todos os agendamentos cadastrados no sistema, filtrando-os por data de agendamento.
 ``` 
 ### Requisitos Não Funcionais
 - Segurança: segurança deve assegurar a segurança dos dados
