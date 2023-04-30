@@ -59,11 +59,15 @@ Esta API será construída pelos componentes do grupo 1:
 
  > Usuários administradores são os únicos que podem criar outros usuários administradores
 
- > A idade do usuário deve ser verificada ao tentar fazer um agendamento, pois a vacina tem idade mínima
+ > Somente usuários maiores de idade podem fazer agendamentos
 
  > Quando um usuário administrador remove um agendamento, todos os agendamentos subsequentes para aquela vacina daquele usuário são removidos também
 
  > O usuário não pode agendar uma vacina para a qual ele já tem agendamentos
+ 
+ > O usuário não pode agendar uma vacina para a qual ele já tenha tomado todas as doses
+ 
+ > Ao agendar uma vacina para a qual o usuário já tenha tomado alguma dose, somente as doses restantes são agendadas
 
 ### Tecnologia de _Front-end_
 ## VueJS
