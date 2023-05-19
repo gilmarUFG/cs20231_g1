@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using vacinacao_backend.Models;
-using Xunit;
+﻿using vacinacao_backend.Models;
 
 namespace vacinacao_testes {
     public class AlergiaTest {
