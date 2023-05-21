@@ -99,9 +99,9 @@ O deploy será feito nas plataformas Vercel e Heroku. Tanto a Vercel quanto o He
 |Iteração|Tarefa|Data Início|Data Fim|Responsável|Situação|
 |---|---|---|---|---|---|
 |1|CRUD inicial da API|17/04/2023|05/05/2023|João Pedro|Entregue|
-|2|Implementação da autenticação na API|06/05/2023|19/05/2023|Mozaniel|Programada|
+|2|Implementação da autenticação na API|06/05/2023|19/05/2023|Felipe Kafuri|Entregue|
 |3|Implementação front usuario telas iniciais|20/05/2023|02/06/2023|Gabriel Milhomem|Programada|
 |4|Implementação front admin telas inicais|03/06/2023|16/06/2023|Igor Pimenta|Programada|
-|5|Implementação regras de negócio|17/06/2023|30/06/2023|Felipe Kafuri|Programada|
+|5|Implementação regras de negócio|17/06/2023|30/06/2023|Mozaniel|Programada|
 |6|Criação de documentação final|01/07/2023|21/07/2023|Mozaniel|Programada|
 |7|Término e deploy|22/07/2023|11/08/2023|Igor Pimenta|Programada| 

@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using vacinacao_backend.Exceptions;
 using vacinacao_backend.Models;
+using vacinacao_backend.Models.DTOs;
 using vacinacao_backend.Models.Enums;
-using Xunit;
+using vacinacao_backend.Services;
 
 namespace vacinacao_testes {
     public class AgendaTest {
@@ -19,7 +15,7 @@ namespace vacinacao_testes {
             var usuarioService = ServiceFactory.CreateUsuarioService(context);
             var vacinaService = ServiceFactory.CreateVacinaService(context);
 
-            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = new DateOnly(1996, 08, 23), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO" };
+            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = DateOnly.Parse(DateTime.Now.AddYears(-30).ToLongDateString()), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO", Email = "emailteste@teste.com", Senha = "123" };
             await usuarioService.InsertUsuario(usuario);
 
             var vacina = new Vacina { Titulo = "Vacina Teste", Descricao = "Não fique doente", Doses = 1 };
@@ -46,7 +42,7 @@ namespace vacinacao_testes {
             var usuarioService = ServiceFactory.CreateUsuarioService(context);
             var vacinaService = ServiceFactory.CreateVacinaService(context);
 
-            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = new DateOnly(1996, 08, 23), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO" };
+            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = DateOnly.Parse(DateTime.Now.AddYears(-30).ToLongDateString()), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO", Email = "emailteste@teste.com", Senha = "123" };
             await usuarioService.InsertUsuario(usuario);
 
             var vacina = new Vacina { Titulo = "Vacina Teste", Descricao = "Não fique doente", Doses = 3, Intervalo = 1, Periodicidade = periodicidade };
@@ -73,7 +69,7 @@ namespace vacinacao_testes {
             var usuarioService = ServiceFactory.CreateUsuarioService(context);
             var vacinaService = ServiceFactory.CreateVacinaService(context);
 
-            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = new DateOnly(1996, 08, 23), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO" };
+            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = DateOnly.Parse(DateTime.Now.AddYears(-30).ToLongDateString()), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO", Email = "emailteste@teste.com", Senha = "123" };
             await usuarioService.InsertUsuario(usuario);
 
             var vacina = new Vacina { Titulo = "Vacina Teste", Descricao = "Não fique doente", Doses = 1 };
@@ -97,7 +93,7 @@ namespace vacinacao_testes {
             var usuarioService = ServiceFactory.CreateUsuarioService(context);
             var vacinaService = ServiceFactory.CreateVacinaService(context);
 
-            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = new DateOnly(1996, 08, 23), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO" };
+            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = DateOnly.Parse(DateTime.Now.AddYears(-30).ToLongDateString()), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO", Email = "emailteste@teste.com", Senha = "123" };
             await usuarioService.InsertUsuario(usuario);
 
             var vacina = new Vacina { Titulo = "Vacina Teste", Descricao = "Não fique doente", Doses = 3, Intervalo = 1, Periodicidade = EnumPeriodicidade.Meses };
@@ -122,7 +118,7 @@ namespace vacinacao_testes {
             var usuarioService = ServiceFactory.CreateUsuarioService(context);
             var vacinaService = ServiceFactory.CreateVacinaService(context);
 
-            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = new DateOnly(1996, 08, 23), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO" };
+            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = DateOnly.Parse(DateTime.Now.AddYears(-30).ToLongDateString()), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO", Email = "emailteste@teste.com", Senha = "123" };
             await usuarioService.InsertUsuario(usuario);
 
             var vacina = new Vacina { Titulo = "Vacina Teste", Descricao = "Não fique doente", Doses = 3, Intervalo = 1, Periodicidade = EnumPeriodicidade.Meses };
@@ -147,7 +143,7 @@ namespace vacinacao_testes {
             var usuarioService = ServiceFactory.CreateUsuarioService(context);
             var vacinaService = ServiceFactory.CreateVacinaService(context);
 
-            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = new DateOnly(1996, 08, 23), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO" };
+            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = DateOnly.Parse(DateTime.Now.AddYears(-30).ToLongDateString()), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO", Email = "emailteste@teste.com", Senha = "123" };
             await usuarioService.InsertUsuario(usuario);
 
             var vacina = new Vacina { Titulo = "Vacina Teste", Descricao = "Não fique doente", Doses = 3, Intervalo = 1, Periodicidade = EnumPeriodicidade.Meses };
@@ -169,7 +165,7 @@ namespace vacinacao_testes {
             var usuarioService = ServiceFactory.CreateUsuarioService(context);
             var vacinaService = ServiceFactory.CreateVacinaService(context);
 
-            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = new DateOnly(1996, 08, 23), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO" };
+            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = DateOnly.Parse(DateTime.Now.AddYears(-30).ToLongDateString()), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO", Email = "emailteste@teste.com", Senha = "123" };
             await usuarioService.InsertUsuario(usuario);
 
             var vacina = new Vacina { Titulo = "Vacina Teste", Descricao = "Não fique doente", Doses = 3, Intervalo = 1, Periodicidade = EnumPeriodicidade.Meses };
@@ -180,6 +176,118 @@ namespace vacinacao_testes {
             await agendaService.UpdateSituacaoAgendamento(1, EnumSituacao.Realizado, "OBS");
 
             await Assert.ThrowsAsync<InvalidOperationException>(async () => { await agendaService.DeleteAgendamento(1); });
+        }
+
+        [Fact]
+        public async Task InsertAgendamentoParaUsuarioInvalidoLancaExcecao() {
+            var agendaService = ServiceFactory.CreateAgendaService();
+
+            var agendamento = new Agenda { Data = new DateTime(2023, 04, 23, 14, 00, 00), UsuarioId = 1, VacinaId = 1 };
+            await Assert.ThrowsAsync<UsuarioNaoEncontradoException>(async () => {
+                await agendaService.InsertAgendamento(agendamento);
+            });
+        }
+
+        [Fact]
+        public async Task InsertAgendamentoParaUsuarioMenorDeIdadeLancaExcecao() {
+            var context = ServiceFactory.CreateContext();
+            var agendaService = ServiceFactory.CreateAgendaService(context);
+            var usuarioService = ServiceFactory.CreateUsuarioService(context);
+
+            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = DateOnly.Parse(DateTime.Now.AddYears(-15).ToLongDateString()), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO", Email = "emailteste@teste.com", Senha = "123" };
+            await usuarioService.InsertUsuario(usuario);
+
+            var agendamento = new Agenda { Data = new DateTime(2023, 04, 23, 14, 00, 00), UsuarioId = 1, VacinaId = 1 };
+            await Assert.ThrowsAsync<UsuarioMenorDeIdadeException>(async () => {
+                await agendaService.InsertAgendamento(agendamento);
+            });
+        }
+
+        [Fact]
+        public async Task InsertAgendamentoComVacinaInvalidaLancaExcecao() {
+            var context = ServiceFactory.CreateContext();
+            var agendaService = ServiceFactory.CreateAgendaService(context);
+            var usuarioService = ServiceFactory.CreateUsuarioService(context);
+
+            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = DateOnly.Parse(DateTime.Now.AddYears(-30).ToLongDateString()), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO", Email = "emailteste@teste.com", Senha = "123" };
+            await usuarioService.InsertUsuario(usuario);
+
+            var agendamento = new Agenda { Data = new DateTime(2023, 04, 23, 14, 00, 00), UsuarioId = 1, VacinaId = 1 };
+            await Assert.ThrowsAsync<VacinaNaoEncontradaException>(async () => {
+                await agendaService.InsertAgendamento(agendamento);
+            });
+        }
+
+        [Fact]
+        public async Task InsertAgendamentoEmQueUsuarioJaAgendouAVacinaLancaExcecao() {
+            var context = ServiceFactory.CreateContext();
+            var agendaService = ServiceFactory.CreateAgendaService(context);
+            var usuarioService = ServiceFactory.CreateUsuarioService(context);
+            var vacinaService = ServiceFactory.CreateVacinaService(context);
+
+            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = DateOnly.Parse(DateTime.Now.AddYears(-30).ToLongDateString()), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO", Email = "emailteste@teste.com", Senha = "123" };
+            await usuarioService.InsertUsuario(usuario);
+
+            var vacina = new Vacina { Titulo = "Vacina Teste", Descricao = "Não fique doente", Doses = 3, Intervalo = 1, Periodicidade = EnumPeriodicidade.Meses };
+            await vacinaService.InsertVacina(vacina);
+
+            var agendamento = new Agenda { Data = new DateTime(2023, 04, 23, 14, 00, 00), UsuarioId = 1, VacinaId = 1 };
+            await agendaService.InsertAgendamento(agendamento);
+
+            await Assert.ThrowsAsync<AgendamentoInvalidoException>(async () => {
+                await agendaService.InsertAgendamento(agendamento);
+            });
+        }
+
+        [Fact]
+        public async Task InsertAgendamentoEmQueUsuarioJaVacinouLancaExcecao() {
+            var context = ServiceFactory.CreateContext();
+            var agendaService = ServiceFactory.CreateAgendaService(context);
+            var usuarioService = ServiceFactory.CreateUsuarioService(context);
+            var vacinaService = ServiceFactory.CreateVacinaService(context);
+
+            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = DateOnly.Parse(DateTime.Now.AddYears(-30).ToLongDateString()), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO", Email = "emailteste@teste.com", Senha = "123" };
+            await usuarioService.InsertUsuario(usuario);
+
+            var vacina = new Vacina { Titulo = "Vacina Teste", Descricao = "Não fique doente", Doses = 3, Intervalo = 1, Periodicidade = EnumPeriodicidade.Meses };
+            await vacinaService.InsertVacina(vacina);
+
+            var agendamento = new Agenda { Data = new DateTime(2023, 04, 23, 14, 00, 00), UsuarioId = 1, VacinaId = 1 };
+            await agendaService.InsertAgendamento(agendamento);
+            await agendaService.UpdateSituacaoAgendamento(1, EnumSituacao.Realizado, "OBS");
+            await agendaService.UpdateSituacaoAgendamento(2, EnumSituacao.Realizado, "OBS");
+            await agendaService.UpdateSituacaoAgendamento(3, EnumSituacao.Realizado, "OBS");
+
+            await Assert.ThrowsAsync<AgendamentoInvalidoException>(async () => {
+                await agendaService.InsertAgendamento(agendamento);
+            });
+        }
+
+        [Fact]
+        public async Task InsertAgendamentoComDosesJaRealizadasDeveInserirSomenteAsDosesRestantes() {
+            var context = ServiceFactory.CreateContext();
+            var agendaService = ServiceFactory.CreateAgendaService(context);
+            var usuarioService = ServiceFactory.CreateUsuarioService(context);
+            var vacinaService = ServiceFactory.CreateVacinaService(context);
+
+            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = DateOnly.Parse(DateTime.Now.AddYears(-30).ToLongDateString()), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO", Email = "emailteste@teste.com", Senha = "123" };
+            await usuarioService.InsertUsuario(usuario);
+
+            var vacina = new Vacina { Titulo = "Vacina Teste", Descricao = "Não fique doente", Doses = 3, Intervalo = 1, Periodicidade = EnumPeriodicidade.Meses };
+            await vacinaService.InsertVacina(vacina);
+
+            var agendamento = new Agenda { Data = new DateTime(2023, 04, 23, 14, 00, 00), UsuarioId = 1, VacinaId = 1 };
+            await agendaService.InsertAgendamento(agendamento);
+            await agendaService.UpdateSituacaoAgendamento(1, EnumSituacao.Realizado, "OBS");
+            await agendaService.UpdateSituacaoAgendamento(2, EnumSituacao.Realizado, "OBS");
+            await agendaService.UpdateSituacaoAgendamento(3, EnumSituacao.Cancelado, "OBS");
+
+            var agendamento2 = new Agenda { Data = new DateTime(2023, 07, 23, 14, 00, 00), UsuarioId = 1, VacinaId = 1 };
+            await agendaService.InsertAgendamento(agendamento2);
+
+            var agendamentosComSituacaoAgendada = await agendaService.FindAgendamentosBySituacao(EnumSituacao.Agendado);
+            Assert.Single(agendamentosComSituacaoAgendada);
+            Assert.Equal(new DateTime(2023, 07, 23, 14, 00, 00), agendamentosComSituacaoAgendada[0].Data);
         }
     }
 }
