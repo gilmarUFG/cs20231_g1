@@ -289,5 +289,29 @@ namespace vacinacao_testes {
             Assert.Single(agendamentosComSituacaoAgendada);
             Assert.Equal(new DateTime(2023, 07, 23, 14, 00, 00), agendamentosComSituacaoAgendada[0].Data);
         }
+
+        [Fact]
+        public async Task InsertAgendamentoEmQueUsuarioTemAlergiaDaVacinaLancaExcecao() {
+            var context = ServiceFactory.CreateContext();
+            var agendaService = ServiceFactory.CreateAgendaService(context);
+            var usuarioService = ServiceFactory.CreateUsuarioService(context);
+            var vacinaService = ServiceFactory.CreateVacinaService(context);
+            var alergiaService = ServiceFactory.CreateAlergiaService(context);
+
+            var vacina = new Vacina { Titulo = "Vacina Teste", Descricao = "Não fique doente", Doses = 3, Intervalo = 1, Periodicidade = EnumPeriodicidade.Meses };
+            await vacinaService.InsertVacina(vacina);
+
+            var alergia = new Alergia { Nome = "Alergia da vacina teste", VacinaId = 1 };
+            await alergiaService.InsertAlergia(alergia);
+
+            var usuario = new InsertUsuarioDTO() { Nome = "Nome Teste", DataNascimento = DateOnly.Parse(DateTime.Now.AddYears(-30).ToLongDateString()), Sexo = 'M', Logradouro = "Rua 2", Numero = 150, Setor = "Centro", Cidade = "Goiânia", UF = "GO", Email = "emailteste@teste.com", Senha = "123", Alergias = new List<int> { 1 } };
+            await usuarioService.InsertUsuario(usuario);
+
+            var agendamento = new Agenda { Data = new DateTime(2023, 04, 23, 14, 00, 00), UsuarioId = 1, VacinaId = 1 };
+
+            await Assert.ThrowsAsync<AgendamentoInvalidoException>(async () => {
+                await agendaService.InsertAgendamento(agendamento);
+            });
+        }
     }
 }

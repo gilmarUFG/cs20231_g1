@@ -12,8 +12,8 @@ using vacinacao_backend.Repositories;
 namespace vacinacao_backend.Migrations
 {
     [DbContext(typeof(VacinacaoContext))]
-    [Migration("20230422154814_3rdMigration")]
-    partial class _3rdMigration
+    [Migration("20230430135744_6thMigration")]
+    partial class _6thMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -87,7 +87,13 @@ namespace vacinacao_backend.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int?>("VacinaId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("VacinaId")
+                        .IsUnique();
 
                     b.ToTable("Alergias");
                 });
@@ -107,6 +113,13 @@ namespace vacinacao_backend.Migrations
                     b.Property<DateOnly>("DataNascimento")
                         .HasColumnType("date");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("Logradouro")
                         .IsRequired()
                         .HasColumnType("text");
@@ -117,6 +130,10 @@ namespace vacinacao_backend.Migrations
 
                     b.Property<int>("Numero")
                         .HasColumnType("integer");
+
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Setor")
                         .IsRequired()
@@ -130,6 +147,9 @@ namespace vacinacao_backend.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Usuarios");
                 });
@@ -194,6 +214,16 @@ namespace vacinacao_backend.Migrations
                         .IsRequired();
 
                     b.Navigation("Usuario");
+
+                    b.Navigation("Vacina");
+                });
+
+            modelBuilder.Entity("vacinacao_backend.Models.Alergia", b =>
+                {
+                    b.HasOne("vacinacao_backend.Models.Vacina", "Vacina")
+                        .WithOne()
+                        .HasForeignKey("vacinacao_backend.Models.Alergia", "VacinaId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Vacina");
                 });
