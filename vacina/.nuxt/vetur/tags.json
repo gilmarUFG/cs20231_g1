@@ -1,0 +1,53 @@
+{
+  "Agendamento": {
+    "description": "Auto imported from components/Agendamento.vue"
+  },
+  "Content": {
+    "description": "Auto imported from components/Content.vue"
+  },
+  "Login": {
+    "description": "Auto imported from components/Login.vue"
+  },
+  "NuxtLogo": {
+    "description": "Auto imported from components/NuxtLogo.vue"
+  },
+  "Register": {
+    "description": "Auto imported from components/Register.vue"
+  },
+  "VacinaRoot": {
+    "description": "Auto imported from components/VacinaRoot.vue"
+  },
+  "FormsAgendamento": {
+    "description": "Auto imported from components/Forms/agendamento.vue"
+  },
+  "FormsVacina": {
+    "description": "Auto imported from components/Forms/vacina.vue"
+  },
+  "GlobalButton": {
+    "description": "Auto imported from components/Global/Button.vue"
+  },
+  "IndexsVacina": {
+    "description": "Auto imported from components/Indexs/vacina.vue"
+  },
+  "MenuFloat": {
+    "description": "Auto imported from components/Menu/Float.vue"
+  },
+  "MenuSidebar": {
+    "description": "Auto imported from components/Menu/Sidebar.vue"
+  },
+  "ModalPattern": {
+    "description": "Auto imported from components/Modal/Pattern.vue"
+  },
+  "LayoutFooter": {
+    "description": "Auto imported from components/layout/Footer.vue"
+  },
+  "LayoutHeader": {
+    "description": "Auto imported from components/layout/Header.vue"
+  },
+  "LoginForm": {
+    "description": "Auto imported from components/login/Form.vue"
+  },
+  "LoginRegister": {
+    "description": "Auto imported from components/login/Register.vue"
+  }
+}
