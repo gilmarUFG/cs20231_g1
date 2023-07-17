@@ -26,10 +26,10 @@ namespace vacinacao_backend.Services {
                 if(!BCrypt.Net.BCrypt.EnhancedVerify(request.Senha, usuario.Senha)) {
                     throw new AuthenticationException();
                 }
-                var response = new LoginResponseDTO { AccessToken = GenerateAccessToken(usuario) };
+                var response = new LoginResponseDTO { AccessToken = GenerateAccessToken(usuario), UsuarioId = usuario.Id };
                 return response;
 			}
-			catch (Exception e) {
+			catch (Exception) {
                 throw new AuthenticationException("Email ou senha inválidos!");
 			}
         }
