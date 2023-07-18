@@ -178,5 +178,6 @@ onBeforeMount(() => {
 
 function cookie() {
   localStorage.setItem("cookie", "true");
+  window.location.href = "/login";
 }
 </script>
