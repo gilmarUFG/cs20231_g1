@@ -1,6 +1,19 @@
+<script setup>
+import { ref } from "vue";
+
+const admin = ref(false);
+
+onMounted(() => {
+  if (localStorage.getItem("admin")) {
+    admin.value = localStorage.getItem("admin");
+  }
+});
+</script>
+
 <template>
   <!-- component -->
   <div
+    v-show="admin"
     class="fixed bottom-4 left-1/2 transform -translate-x-1/2 inline-flex left-0 mx-auto justify-between bg-gray-800 w-11/12 rounded-3xl"
   >
     <a

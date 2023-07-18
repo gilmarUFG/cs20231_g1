@@ -1,3 +1,14 @@
+<script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  user: {
+    type: Object,
+  },
+});
+
+</script>
+
 <template>
   <div class="rounded-lg shadow-xl bg-gray-800 text-white" style="width: 450px">
     <div class="border-b border-gray-800 px-8 py-3">
@@ -12,20 +23,20 @@
       </p>
       <p>&nbsp;&nbsp;<span class="text-pink-500">return</span> {</p>
       <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;name: <span class="text-yellow-300">'Scott Windon'</span>,
+        &nbsp;&nbsp;&nbsp;&nbsp;name: <span class="text-yellow-300">'{{ user.nome }}'</span>,
       </p>
       <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;position:
-        <span class="text-yellow-300">'fullstack-developer'</span>,
+        &nbsp;&nbsp;&nbsp;&nbsp;admin:
+        <span class="text-yellow-300">'{{ user.isAdmin }}'</span>,
       </p>
       <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;websiste:
+        &nbsp;&nbsp;&nbsp;&nbsp;email:
         <span class="text-yellow-300"
           >'<a
-            href="https://scottwindon.com"
+            :href="'mailto:' + user.email"
             target="_blank"
             class="text-yellow-300 hover:underline focus:border-none"
-            >https://scottwindon.com</a
+            >{{user.email}}</a
           >'</span
         >,
       </p>
