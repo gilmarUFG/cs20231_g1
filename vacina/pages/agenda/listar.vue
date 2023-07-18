@@ -25,7 +25,7 @@ onMounted(() => {
   <div
     class="bg-gray-900 min-h-screen p-8 md:p-24 items-center justify-center min-w-screen"
   >
-    <list-agenda  />
+    <listar-agenda  />
     <layout-menu />
   </div>
 </template>
