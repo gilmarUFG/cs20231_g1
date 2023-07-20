@@ -33,5 +33,6 @@ onMounted(() => {
         <load v-if="loading" />
         <cards-perfil :user="user" />
         <layout-menu />
+        <menu-search />
     </div>
 </template>

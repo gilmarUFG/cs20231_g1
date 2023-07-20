@@ -1,7 +1,14 @@
 <script setup>
-import { ref } from "vue";
+import { ref, defineEmits } from "vue";
+import { ClockIcon } from "@heroicons/vue/24/solid";
 
 const admin = ref(false);
+
+const emits = defineEmits(["toggle"]);
+
+function toggleMenu() {
+  emits("toggle");
+}
 
 onMounted(() => {
   if (localStorage.getItem("admin")) {
@@ -21,16 +28,7 @@ onMounted(() => {
       class="inline-flex flex-col items-center text-xs font-medium py-3 px-4 text-white flex-grow"
       href="/agenda/cadastro"
     >
-      <svg
-        class="w-7 h-7"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
-        ></path>
-      </svg>
+      <ClockIcon class="h-6 w-6 text-blue-400" />
       <span class="sr-only">Home</span>
     </a>
     <a
@@ -51,9 +49,9 @@ onMounted(() => {
       </svg>
     </a>
     <span class="sr-only">Upload</span>
-    <a
+    <button
       class="relative inline-flex flex-col items-center text-xs font-medium text-white py-3 px-6 flex-grow"
-      href="/vacina/cadastro"
+      @click="toggleMenu()"
     >
       <div class="absolute bottom-5 p-3 rounded-full border-4 border-white bg-blue-600">
         <svg
@@ -70,7 +68,7 @@ onMounted(() => {
         </svg>
       </div>
       <span class="sr-only">Chat</span>
-    </a>
+    </button>
     <a
       class="inline-flex flex-col items-center text-xs font-medium text-blue-400 py-3 px-4 flex-grow"
       href="/vacina/cadastro"
