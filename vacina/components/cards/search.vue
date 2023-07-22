@@ -2,18 +2,34 @@
 import { ref } from "vue";
 
 const options = ref([]);
+const optionsFiltrado = ref([]);
+const ADMIN = "admin";
+const GERAL = "geral";
 
 options.value = [
-  ["Listar usuários", "/paciente/listar", "admin"],
-  ["Listar Agenda", "/agenda/listar", "admin"],
-  ["Listar Vacina", "/vacina/listar", "admin"],
-  ["Cadastrar agendamento", "/agenda/cadastrar", "paciente"],
-  ["Cadastrar Vacina", "/vacina/cadastrar", "admin"],
-  ["Cadastrar Usuário", "/paciente/cadastrar", "admin"],
-  ["Logout", "/logout", "paciente"],
+  ["Listar usuários", "/paciente/listar", ADMIN],
+  ["Listar Agenda", "/agenda/listar", ADMIN],
+  ["Listar Vacina", "/vacina/listar", ADMIN],
+  ["Cadastrar Vacina", "/vacina/cadastro", ADMIN],
+  ["Cadastrar Usuário", "/paciente/cadastro", ADMIN],
+  ["Cadastrar agendamento", "/agenda/cadastro", GERAL],
+  ["Perfil", "/perfil", GERAL],
+  ["Logout", "/logout", GERAL],
 ];
 
-console.log(options.value);
+onMounted(() => {
+  optionsFiltrado.value = options.value.filter((option) => {
+    return validarSeItemSeraMostrado(option[2]);
+  });
+});
+
+function validarSeItemSeraMostrado(isAdmin) {
+  if (localStorage.getItem("admin")) {
+    return true;
+  } else {
+    return isAdmin == GERAL;
+  }
+}
 </script>
 
 <template>
@@ -74,7 +90,7 @@ console.log(options.value);
             class="max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
             id="options"
             role="listbox"
-            v-for="option in options"
+            v-for="option in optionsFiltrado"
             :key="option"
           >
             <!-- Active: "bg-indigo-600 text-white" -->

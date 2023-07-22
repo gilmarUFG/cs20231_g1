@@ -28,6 +28,6 @@ function toggleMenu() {
         />
       </svg>
     </div>
-    <search v-show="menuIsOpen" />
+    <cards-search v-show="menuIsOpen" />
   </div>
 </template>

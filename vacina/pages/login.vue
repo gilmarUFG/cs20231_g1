@@ -21,10 +21,15 @@ async function submit() {
     alert(error.message);
   } finally {
     loading.value = false;
-  } 
+  }
+}
+
+async function axiosGetHealthCheck() {
+  await axios.get("https://api-vacinacao.onrender.com/_health");
 }
 
 onMounted(() => {
+  axiosGetHealthCheck();
   if (localStorage.getItem("token")) {
     window.location.href = "/perfil";
   }
@@ -35,7 +40,7 @@ onMounted(() => {
   <div
     class="flex min-h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-gray-900"
   >
-  <load v-show="loading" />
+    <load v-show="loading" />
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <img
         class="mx-auto h-10 w-auto"
