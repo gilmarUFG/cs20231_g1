@@ -21,18 +21,21 @@ function changestep(stepSelecionada) {
 }
 
 async function submit() {
-  let response = await fetch("http://localhost:3000/paciente", {
+  let response = await fetch("https://api-vacinacao.onrender.com/vacina", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": "Bearer " + localStorage.getItem("token"),
     },
     body: JSON.stringify({
-      nome: nome.value,
+      titulo: nome.value,
       descricao: descricao.value,
+      doses: doses.value,
+      periodicidade: periodicidade.value,
+      intervalo: intervalo.value
     }),
   });
   let data = await response.json();
-  console.log(data);
 }
 </script>
 
@@ -51,31 +54,31 @@ async function submit() {
 
           <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
             <div class="sm:col-span-4 lg:col-auto">
-              <label for="username" class="block text-sm font-medium text-white"
+              <label for="titulo" class="block text-sm font-medium text-white"
                 >Nome</label
               >
               <div class="mt-1 flex rounded-md shadow-sm">
                 <input
                   type="text"
-                  name="username"
-                  id="username"
-                  autocomplete="username"
+                  name="titulo"
+                  id="titulo"
+                  autocomplete="titulo"
                   v-model="nome"
                   class="input-vacina"
                 />
               </div>
             </div>
             <div class="sm:col-span-4 lg:col-auto">
-              <label for="email" class="block text-sm font-medium text-white"
+              <label for="descricao" class="block text-sm font-medium text-white"
                 >Descrição</label
               >
               <div class="mt-1 flex rounded-md shadow-sm">
                 <input
                   type="text"
-                  name="email"
-                  id="email"
-                  autocomplete="email"
-                  v-model="email"
+                  name="descricao"
+                  id="descricao"
+                  autocomplete="descricao"
+                  v-model="descricao"
                   class="input-vacina"
                 />
               </div>
