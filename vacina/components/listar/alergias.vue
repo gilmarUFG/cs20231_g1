@@ -2,7 +2,7 @@
 import { ref, defineProps } from "vue";
 
 const props = defineProps({
-  alergias: {
+  alergiasList: {
     type: Array,
   },
 });
@@ -13,7 +13,7 @@ const props = defineProps({
     <div class="lg:grid lg:grid-cols-12 lg:gap-x-16">
       <ol
         class="mt-4 divide-y divide-gray-100 text-sm leading-6 col-span-12"
-        v-for="alergia in alergias"
+        v-for="alergia in alergiasList"
         :key="alergia.id"
       >
         <cards-alergia :item="alergia" />
