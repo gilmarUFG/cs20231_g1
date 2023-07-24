@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-const step = ref(1);
+const step = ref(0);
 
 const nome = ref("");
 const email = ref("");
@@ -14,6 +14,11 @@ const estado = ref("");
 const cidade = ref("");
 const logradouro = ref("");
 const cadastranteIsAdmin = ref(false);
+const steps = [
+  "Perfil",
+  "Dados Pessoais",
+  "Endereço"
+]
 
 onMounted(() => {
   if (localStorage.getItem("admin")) {
@@ -63,10 +68,10 @@ async function submit() {
 
 <template>
   <div>
-    <nav-steps :currentStep="step" @changeStep="changestep" />
-    <form class="space-y-8 divide-y divide-gray-200 mt-20">
+    <nav-steps :steps="steps" :currentStep="step" @changeStep="changestep" />
+    <form class="space-y-8 divide-y divide-gray-200 mt-4 md:mt-20">
       <div class="space-y-8">
-        <div v-show="step == 1">
+        <div v-show="step == 0">
           <div>
             <h3 class="text-lg font-medium leading-6 text-white">Perfil</h3>
             <p class="mt-1 text-sm text-gray-500">
@@ -120,7 +125,7 @@ async function submit() {
                 />
               </div>
             </div>
-            <div class="flex items-center flex-row">
+            <div v-if="cadastranteIsAdmin" class="flex items-center flex-row">
               <forms-elements-toggle @switch="setAdmin" />
               &nbsp; &nbsp;
               <span class="text-white"> Usuário administrador? </span>
@@ -128,7 +133,7 @@ async function submit() {
           </div>
         </div>
 
-        <div v-show="step == 2">
+        <div v-show="step == 1">
           <div>
             <h3 class="text-lg font-medium leading-6 text-white">Dados pessoais</h3>
             <p class="mt-1 text-sm text-gray-500">Essas são suas informações pessoais.</p>
@@ -165,7 +170,7 @@ async function submit() {
           </div>
         </div>
 
-        <div v-show="step == 3">
+        <div v-show="step == 2">
           <div>
             <h3 class="text-lg font-medium leading-6 text-white">Dados do endereço</h3>
             <p class="mt-1 text-sm text-gray-500">
@@ -265,7 +270,7 @@ async function submit() {
             Voltar
           </button>
           <button
-            v-if="step !== 3"
+            v-if="step !== 2"
             @click="step++"
             type="button"
             class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -273,7 +278,7 @@ async function submit() {
             Próximo
           </button>
           <button
-            v-if="step === 3"
+            v-if="step === 2"
             @click="submit"
             type="button"
             class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"

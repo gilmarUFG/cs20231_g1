@@ -10,14 +10,16 @@ options.value = [
   ["Listar usuários", "/paciente/listar", ADMIN],
   ["Listar Agenda", "/agenda/listar", ADMIN],
   ["Listar Vacina", "/vacina/listar", ADMIN],
+  ["Listar Alergia", "/alergia/listar", ADMIN],
   ["Cadastrar Vacina", "/vacina/cadastro", ADMIN],
   ["Cadastrar Usuário", "/paciente/cadastro", ADMIN],
-  ["Cadastrar agendamento", "/agenda/cadastro", GERAL],
+  ["Cadastrar Alergia", "/alergia/cadastro", ADMIN],
+  ["Cadastrar Agendamento", "/agenda/cadastro", GERAL],
   ["Perfil", "/perfil", GERAL],
   ["Logout", "/logout", GERAL],
 ];
 
-onMounted(() => {
+onBeforeMount(() => {
   optionsFiltrado.value = options.value.filter((option) => {
     return validarSeItemSeraMostrado(option[2]);
   });

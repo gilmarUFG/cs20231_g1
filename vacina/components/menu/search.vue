@@ -11,7 +11,7 @@ function toggleMenu() {
   <div>
     <div
       @click="toggleMenu"
-      class="absolute bottom-4 right-1 md:bottom-4 md:right-4 cursor-pointer z-20 flex items-center justify-center h-12 w-12 rounded-full bg-gray-600 text-white p-2 shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
+      class="fixed bottom-4 right-1 md:bottom-4 md:right-4 cursor-pointer z-20 flex items-center justify-center h-12 w-12 rounded-full bg-gray-600 text-white p-2 shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
