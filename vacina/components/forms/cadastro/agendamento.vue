@@ -11,6 +11,11 @@ const listaVacinas = ref([]);
 const steps = ["Usuario", "Vacina", "Data"];
 
 onMounted(() => {
+  if (localStorage.getItem("admin")) {
+    step.value = 1;
+    idUsuario.value = localStorage.getItem("userId");
+    document.getElementById("usuario").disabled = true;
+  }
   getUsuarios();
   getVacinas();
 });
