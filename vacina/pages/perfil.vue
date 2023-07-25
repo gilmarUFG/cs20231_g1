@@ -32,7 +32,6 @@ onMounted(() => {
     <div class="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
         <load v-if="loading" />
         <cards-perfil :user="user" />
-        <menu-search />
-        <menu-search />
+        <menu-search v-if="!loading" />
     </div>
 </template>
