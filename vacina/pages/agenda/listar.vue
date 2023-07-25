@@ -1,6 +1,7 @@
 <script setup>
 import { ref, defineProps } from "vue";
 import axios from "axios";
+import { HttpTransportType, HubConnection, HubConnectionBuilder } from "@aspnet/signalr";
 
 const listAgenda = ref([]);
 
@@ -21,6 +22,23 @@ const getAgenda = async () => {
 
 onMounted(() => {
   getAgenda();
+});
+
+// essa connection precisa de um skip negociate
+const connection = new HubConnectionBuilder()
+  .withUrl("https://api-vacinacao.onrender.com/hub", {
+    skipNegotiation: true,
+    transport: HttpTransportType.WebSockets,
+  })
+  .build();
+
+connection.start().then(() => {
+  console.log("Conectado");
+});
+
+// aqui a agenda nova será concatenada com a lista de agendas
+connection.on("NovosAgendamentos", (agenda) => {
+  listAgenda.value = listAgenda.value.concat(agenda);
 });
 </script>
 

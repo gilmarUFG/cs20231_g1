@@ -11,7 +11,7 @@ const listaVacinas = ref([]);
 const steps = ["Usuario", "Vacina", "Data"];
 
 onMounted(() => {
-  if (localStorage.getItem("admin")) {
+  if (!localStorage.getItem("admin")) {
     step.value = 1;
     idUsuario.value = localStorage.getItem("userId");
     document.getElementById("usuario").disabled = true;
@@ -47,7 +47,7 @@ async function submit() {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer " + localStorage.getItem("token"),
+      Authorization: "Bearer " + localStorage.getItem("token"),
     },
     body: JSON.stringify({
       usuarioId: idUsuario.value,
@@ -117,12 +117,7 @@ async function submit() {
                 >Vacina</label
               >
               <div class="mt-1 flex rounded-md shadow-sm">
-                <select
-                class="input-vacina"
-                  v-model="idVacina"
-                  name="vacina"
-                  id="vacina"
-                >
+                <select class="input-vacina" v-model="idVacina" name="vacina" id="vacina">
                   <option disabled value="">Selecione</option>
                   <option
                     v-for="vacina in listaVacinas"
@@ -178,7 +173,7 @@ async function submit() {
       <div class="pt-5">
         <div class="flex justify-end">
           <button
-          v-if="step !== 0"
+            v-if="step !== 0"
             @click="step--"
             type="button"
             class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-gray-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"

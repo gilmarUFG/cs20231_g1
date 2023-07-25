@@ -11,7 +11,7 @@ const props = defineProps({
 <template>
   <li class="relative flex space-x-6 py-6 xl:static">
     <div class="flex-auto">
-      <h3 class="pr-10 font-semibold text-white xl:pr-0">{{ item.vacina.descricao }}</h3>
+      <h3 class="pr-10 font-semibold text-white xl:pr-0">{{ item.vacina.titulo }} | {{ item.vacina.descricao }}</h3>
       <dl class="mt-2 flex flex-col text-gray-500 xl:flex-row">
         <div class="flex items-start space-x-3">
           <dt class="mt-0.5">
