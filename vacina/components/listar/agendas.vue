@@ -3,7 +3,7 @@ import { ref, defineProps } from "vue";
 
 const props = defineProps({
   agendas: {
-    type: Array,
+    type: Object
   },
 });
 </script>
