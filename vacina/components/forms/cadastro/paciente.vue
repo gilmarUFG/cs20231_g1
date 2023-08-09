@@ -15,11 +15,7 @@ const setor = ref("");
 const cidade = ref("");
 const logradouro = ref("");
 const cadastranteIsAdmin = ref(false);
-const steps = [
-  "Perfil",
-  "Dados Pessoais",
-  "Endereço"
-]
+const steps = ["Perfil", "Dados Pessoais", "Endereço"];
 
 onMounted(() => {
   if (localStorage.getItem("admin")) {
@@ -46,11 +42,13 @@ async function getCep() {
 
 async function submit() {
   let url = "https://api-vacinacao.onrender.com/usuario";
-  if (localStorage.getItem("admin")) url = "https://api-vacinacao.onrender.com/usuario/admin";
+  if (localStorage.getItem("admin"))
+    url = "https://api-vacinacao.onrender.com/usuario/admin";
   let headers = {
     "Content-Type": "application/json",
   };
-  if (localStorage.getItem("token")) headers.Authorization = "Bearer " + localStorage.getItem("token");
+  if (localStorage.getItem("token"))
+    headers.Authorization = "Bearer " + localStorage.getItem("token");
   let response = await fetch(url, {
     method: "POST",
     headers: headers,
@@ -68,9 +66,12 @@ async function submit() {
       isAdmin: admin.value,
       setor: setor.value,
     }),
-  });
+  }).then((response) => {
+    if (response.status === 201) {
+      window.location.href = "/login";
+    }
+  })
   let data = await response.json();
-  console.log(data);
 }
 </script>
 
@@ -285,6 +286,7 @@ async function submit() {
       <div class="pt-5">
         <div class="flex justify-end">
           <button
+            v-if="step !== 0"
             @click="step--"
             type="button"
             class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-gray-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"

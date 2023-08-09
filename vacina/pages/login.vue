@@ -18,7 +18,7 @@ async function submit() {
       window.location.href = "/perfil";
     }
   } catch (error) {
-    alert(error.message);
+    alert("Email ou senha incorretos");
   } finally {
     loading.value = false;
   }
@@ -68,7 +68,7 @@ onMounted(() => {
               autocomplete="email"
               v-model="email"
               required=""
-              class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              class="block w-full rounded-md border-0 px-2 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -79,8 +79,8 @@ onMounted(() => {
               >Password</label
             >
             <div class="text-sm">
-              <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500"
-                >Forgot password?</a
+              <a v-if="1==2" href="#" class="font-semibold text-indigo-600 hover:text-indigo-500"
+                >Esqueceu sua senha?</a
               >
             </div>
           </div>
@@ -92,7 +92,7 @@ onMounted(() => {
               v-model="password"
               autocomplete="current-password"
               required=""
-              class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              class="block w-full rounded-md border-0 px-2 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
           </div>
         </div>
