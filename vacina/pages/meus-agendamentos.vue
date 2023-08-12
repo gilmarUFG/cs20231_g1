@@ -7,11 +7,15 @@ const listAgenda = ref([]);
 
 const getAgenda = async () => {
   try {
-    const response = await axios.get("https://api-vacinacao.onrender.com/agenda/usuario/?usuarioId=" + localStorage.getItem("user"), {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    });
+    const response = await axios.get(
+      "https://api-vacinacao.onrender.com/agenda/usuario/?usuarioId=" +
+        localStorage.getItem("user"),
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      }
+    );
     listAgenda.value = response.data;
   } catch (error) {
     if (error.response.status === 401) {
@@ -43,10 +47,12 @@ connection.on("NovosAgendamentos", (agenda) => {
 </script>
 
 <template>
-  <div
-    class="bg-gray-900 min-h-screen p-8 md:p-24 items-center justify-center min-w-screen"
-  >
-    <menu-search />
-    <listar-agendas :agendas="listAgenda" />
+  <div>
+    <menu-flyout />
+    <div
+      class="bg-gray-900 min-h-screen p-8 md:p-24 items-center justify-center min-w-screen"
+    >
+      <listar-agendas :agendas="listAgenda" />
+    </div>
   </div>
 </template>

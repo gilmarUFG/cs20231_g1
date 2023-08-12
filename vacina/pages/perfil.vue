@@ -38,7 +38,6 @@ onMounted(() => {
     >
       <load v-if="loading" />
       <cards-perfil :user="user" />
-      <menu-search v-if="!loading" />
     </div>
   </div>
 </template>

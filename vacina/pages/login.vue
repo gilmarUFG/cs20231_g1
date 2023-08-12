@@ -42,11 +42,6 @@ onMounted(() => {
   >
     <load v-show="loading" />
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <img
-        class="mx-auto h-10 w-auto"
-        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-        alt="Your Company"
-      />
       <h2
         class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white"
       >
@@ -79,7 +74,10 @@ onMounted(() => {
               >Password</label
             >
             <div class="text-sm">
-              <a v-if="1==2" href="#" class="font-semibold text-indigo-600 hover:text-indigo-500"
+              <a
+                v-if="1 == 2"
+                href="#"
+                class="font-semibold text-indigo-600 hover:text-indigo-500"
                 >Esqueceu sua senha?</a
               >
             </div>
