@@ -11,7 +11,7 @@ const listaVacinas = ref([]);
 const steps = ["Usuario", "Vacina", "Data"];
 
 onMounted(() => {
-  if (!localStorage.getItem("admin")) {
+  if (localStorage.getItem("admin") == "false") {
     step.value = 1;
     idUsuario.value = localStorage.getItem("userId");
     document.getElementById("usuario").disabled = true;
@@ -21,6 +21,9 @@ onMounted(() => {
 });
 
 function changestep(stepSelecionada) {
+  if (stepSelecionada == 0 && localStorage.getItem("admin") == "false") {
+    return;
+  }
   step.value = stepSelecionada;
 }
 
