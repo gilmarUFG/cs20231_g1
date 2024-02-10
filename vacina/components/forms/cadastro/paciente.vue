@@ -11,14 +11,11 @@ const dataNascimento = ref("");
 const cep = ref(null);
 const numero = ref("");
 const estado = ref("");
+const setor = ref("");
 const cidade = ref("");
 const logradouro = ref("");
 const cadastranteIsAdmin = ref(false);
-const steps = [
-  "Perfil",
-  "Dados Pessoais",
-  "Endereço"
-]
+const steps = ["Perfil", "Dados Pessoais", "Endereço"];
 
 onMounted(() => {
   if (localStorage.getItem("admin")) {
@@ -40,29 +37,41 @@ async function getCep() {
   estado.value = data.uf;
   cidade.value = data.localidade;
   logradouro.value = data.logradouro;
+  setor.value = data.bairro;
 }
 
 async function submit() {
-  let response = await fetch("http://localhost:3000/paciente", {
+  let url = "https://api-vacinacao.onrender.com/usuario";
+  if (localStorage.getItem("admin"))
+    url = "https://api-vacinacao.onrender.com/usuario/admin";
+  let headers = {
+    "Content-Type": "application/json",
+  };
+  if (localStorage.getItem("token"))
+    headers.Authorization = "Bearer " + localStorage.getItem("token");
+  let response = await fetch(url, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: headers,
     body: JSON.stringify({
       nome: nome.value,
       email: email.value,
       senha: senha.value,
-      genero: genero.value,
+      sexo: genero.value,
       dataNascimento: dataNascimento.value,
       cep: cep.value,
       numero: numero.value,
-      estado: estado.value,
+      uf: estado.value,
       cidade: cidade.value,
       logradouro: logradouro.value,
+      isAdmin: admin.value,
+      setor: setor.value,
     }),
-  });
+  }).then((response) => {
+    if (response.status === 201) {
+      window.location.href = "/login";
+    }
+  })
   let data = await response.json();
-  console.log(data);
 }
 </script>
 
@@ -178,7 +187,7 @@ async function submit() {
             </p>
           </div>
 
-          <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-2">
+          <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-3">
             <div class="sm:col-span-4 lg:col-auto">
               <label for="cep" class="block text-sm font-medium text-white">CEP</label>
               <div class="mt-1 flex rounded-md shadow-sm">
@@ -203,6 +212,20 @@ async function submit() {
                   name="numero"
                   id="numero"
                   v-model="numero"
+                  class="input-vacina"
+                />
+              </div>
+            </div>
+            <div class="sm:col-span-4 lg:col-auto">
+              <label for="setor" class="block text-sm font-medium text-white"
+                >Bairro</label
+              >
+              <div class="mt-1 flex rounded-md shadow-sm">
+                <input
+                  type="text"
+                  name="setor"
+                  id="setor"
+                  v-model="setor"
                   class="input-vacina"
                 />
               </div>
@@ -263,6 +286,7 @@ async function submit() {
       <div class="pt-5">
         <div class="flex justify-end">
           <button
+            v-if="step !== 0"
             @click="step--"
             type="button"
             class="ml-3 inline-flex justify-center rounded-md border border-transparent bg-gray-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"

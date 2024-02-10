@@ -1,32 +1,23 @@
 <script setup>
 import { ref } from "vue";
 const step = ref(0);
-
 const nome = ref("");
-const cadastranteIsAdmin = ref(false);
 const steps = [
   "Alergia"
 ]
-
-onMounted(() => {
-  if (localStorage.getItem("admin")) {
-    cadastranteIsAdmin.value = localStorage.getItem("admin");
-  }
-});
-
 function changestep(stepSelecionada) {
   step.value = stepSelecionada;
 }
 
 async function submit() {
-  let response = await fetch("http://localhost:3000/paciente", {
+  let response = await fetch("https://api-vacinacao.onrender.com/alergia", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": "Bearer " + localStorage.getItem("token"),
     },
     body: JSON.stringify({
       nome: nome.value,
-      descricao: descricao.value,
     }),
   });
   let data = await response.json();

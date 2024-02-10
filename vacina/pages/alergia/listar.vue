@@ -28,9 +28,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bg-gray-900 min-h-screen p-6 md:p-24">
-    <menu-search />
-    <h1 class="text-xl md:text-3xl text-white font-bold mb-2">Alergias cadastradas</h1>
-    <listar-alergias :alergiasList="alergias" />
+  <div>
+    <menu-flyout />
+    <div class="bg-gray-900 min-h-screen p-6 md:p-24">
+      <h1 class="text-xl md:text-3xl text-white font-bold mb-2">Alergias cadastradas</h1>
+      <listar-alergias :alergiasList="alergias" />
+    </div>
   </div>
 </template>
